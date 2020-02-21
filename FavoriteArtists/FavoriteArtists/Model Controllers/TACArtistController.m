@@ -56,6 +56,60 @@ static NSString * const baseURLString = @"https://www.theaudiodb.com/api/v1/json
     }
 }
 
+- (void)loadArtistDictionary {
+    NSDictionary *artistDictionary = [NSDictionary dictionaryWithContentsOfURL:[self artistFileURL] error: NULL];
+    NSArray *artistDictionaries = artistDictionary[@"artists"];
+    for (NSDictionary *artists in artistDictionaries) {
+        [self.artistDictionary[@"artists"] addObject:artists];
+    }
+}
+
+-(NSURL *)artistsFileURL {
+    NSURL *documentDirectory = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] firstObject];
+    NSString *fileName = @"artists.json";
+    return [documentDirectory URLByAppendingPathComponent:fileName];
+}
+
+-(void)searchForArtistsByName:(NSString *)name completion:(void (^)(TACArtists *artist, NSError *error))completion {
+
+    NSURL *baseURL = [NSURL URLWithString:baseURLString];
+    NSURLComponents *components = [NSURLComponents componentsWithURL:baseURL resolvingAgainstBaseURL:YES];
+
+    NSURLQueryItem *searchItem = [NSURLQueryItem queryItemWithName:@"s" value:name];
+    [components setQueryItems:@[searchItem]];
+
+    NSURL *url = components.URL;
+
+    [[[NSURLSession sharedSession] dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+
+        if (error) {
+            completion(nil, error);
+            return;
+        }
+
+        NSError *jsonError = nil;
+        NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonError];
+
+        if (jsonError) {
+            completion(nil, jsonError);
+            return;
+        }
+
+        if (![dictionary isKindOfClass:[NSDictionary class]]) {
+            NSError *dictionaryError = [[NSError alloc] init];
+            completion(nil, dictionaryError);
+        }
+
+        NSArray *artistsDictionaries = dictionary[@"artists"];
+
+        // Only one element in the array, so return the first!
+        TACArtists *artist = [[TACArtists alloc] initWithDictionary:artistsDictionaries[0]];
+
+        completion(artist, nil);
+
+    }] resume];
+
+}
 
 
 @end
