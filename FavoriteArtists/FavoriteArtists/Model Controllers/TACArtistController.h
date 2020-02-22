@@ -15,7 +15,7 @@
 @property (nonatomic, readonly) NSArray *artists;
 
 
--(void)searchForArtistsByName:(NSString *)name completion:(void (^)(TACArtists *artists, NSError *error))completion;
+-(void)searchForArtistsByName:(NSString *)name completion:(void (^)(TACArtists *artist, NSError *error))completion;
 
 -(void)writeDictionaryToFile:(NSDictionary *)dictionary;
 

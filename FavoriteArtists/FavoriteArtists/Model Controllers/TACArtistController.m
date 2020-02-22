@@ -9,7 +9,7 @@
 #import "TACArtistController.h"
 #import "TACNSJSONSerialization.h"
 
-@interface TACArtistController()
+@interface TACArtistController ()
 
 @property (nonatomic) NSDictionary *artistDictionary;
 
@@ -64,7 +64,7 @@ static NSString * const baseURLString = @"https://www.theaudiodb.com/api/v1/json
     }
 }
 
--(NSURL *)artistsFileURL {
+-(NSURL *)artistFileURL {
     NSURL *documentDirectory = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] firstObject];
     NSString *fileName = @"artists.json";
     return [documentDirectory URLByAppendingPathComponent:fileName];
@@ -102,7 +102,7 @@ static NSString * const baseURLString = @"https://www.theaudiodb.com/api/v1/json
 
         NSArray *artistsDictionaries = dictionary[@"artists"];
 
-        // Only one element in the array, so return the first!
+        
         TACArtists *artist = [[TACArtists alloc] initWithDictionary:artistsDictionaries[0]];
 
         completion(artist, nil);

@@ -61,20 +61,14 @@
             </objects>
             <point key="canvasLocation" x="973.91304347826099" y="17.410714285714285"/>
         </scene>
-        <!--View Controller-->
+        <!--Name-->
         <scene sceneID="c4z-Er-oIu">
             <objects>
-                <viewController id="R4h-B6-DUv" sceneMemberID="viewController">
+                <viewController id="R4h-B6-DUv" customClass="TACDetailViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AcY-3b-4Ac">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bXs-Iy-EAT">
-                                <rect key="frame" x="20" y="155" width="45" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Year" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lM3-65-4qM">
                                 <rect key="frame" x="20" y="207" width="34" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -94,16 +88,18 @@
                         <constraints>
                             <constraint firstItem="mUP-Gt-JO4" firstAttribute="top" secondItem="lM3-65-4qM" secondAttribute="bottom" constant="16" id="LV1-Oi-guw"/>
                             <constraint firstItem="s6T-s1-mXg" firstAttribute="trailing" secondItem="mUP-Gt-JO4" secondAttribute="trailing" constant="20" id="TBB-Sc-yde"/>
-                            <constraint firstItem="bXs-Iy-EAT" firstAttribute="leading" secondItem="s6T-s1-mXg" secondAttribute="leading" constant="20" id="adA-TM-n3c"/>
-                            <constraint firstItem="lM3-65-4qM" firstAttribute="top" secondItem="bXs-Iy-EAT" secondAttribute="bottom" constant="31" id="hC1-g0-wPi"/>
+                            <constraint firstItem="lM3-65-4qM" firstAttribute="top" secondItem="s6T-s1-mXg" secondAttribute="top" constant="119" id="Tfk-zl-Tta"/>
                             <constraint firstItem="mUP-Gt-JO4" firstAttribute="leading" secondItem="s6T-s1-mXg" secondAttribute="leading" constant="20" id="hu6-17-z7K"/>
-                            <constraint firstItem="bXs-Iy-EAT" firstAttribute="top" secondItem="s6T-s1-mXg" secondAttribute="top" constant="67" id="lh9-py-R0Z"/>
                             <constraint firstAttribute="bottom" secondItem="mUP-Gt-JO4" secondAttribute="bottom" constant="17" id="wj2-ND-Iha"/>
                             <constraint firstItem="lM3-65-4qM" firstAttribute="leading" secondItem="s6T-s1-mXg" secondAttribute="leading" constant="20" id="z3d-6v-zjG"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="s6T-s1-mXg"/>
                     </view>
-                    <navigationItem key="navigationItem" id="LWf-7w-OO7"/>
+                    <navigationItem key="navigationItem" title="Name" id="LWf-7w-OO7"/>
+                    <connections>
+                        <outlet property="biographyTextField" destination="mUP-Gt-JO4" id="0l3-Ks-X8t"/>
+                        <outlet property="yearFormedLabel" destination="lM3-65-4qM" id="XGF-9i-qpM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M3P-zI-g5j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -112,7 +108,7 @@
         <!--Add A New Artist-->
         <scene sceneID="Zx4-3H-G6y">
             <objects>
-                <viewController id="v8p-Ko-OpQ" sceneMemberID="viewController">
+                <viewController id="v8p-Ko-OpQ" customClass="TACSearchViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yIV-ff-O14">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -159,8 +155,18 @@
                         <viewLayoutGuide key="safeArea" id="0dC-my-4RA"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add A New Artist" id="985-It-uKU">
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="Tc8-VT-Uhv"/>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="Tc8-VT-Uhv">
+                            <connections>
+                                <action selector="saveButtonPressed:" destination="v8p-Ko-OpQ" id="ydq-0R-lFN"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="biographyTextView" destination="o6X-zO-VeE" id="7Ia-Ei-ywz"/>
+                        <outlet property="formedYearLabel" destination="MLw-sN-5ii" id="p0y-nG-Zdg"/>
+                        <outlet property="nameLabel" destination="V0l-kt-ZJb" id="AvK-MK-xJc"/>
+                        <outlet property="searchBar" destination="HBz-Iy-IN5" id="4K5-bN-Pfe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ghz-GX-Wao" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

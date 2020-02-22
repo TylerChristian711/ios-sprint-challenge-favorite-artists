@@ -16,6 +16,9 @@
 		E3BD8CAC240042EF00688228 /* TACArtists.m in Sources */ = {isa = PBXBuildFile; fileRef = E3BD8CAB240042EF00688228 /* TACArtists.m */; };
 		E3BD8CB02400485800688228 /* TACArtistController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3BD8CAF2400485800688228 /* TACArtistController.m */; };
 		E3BD8CB724004C7C00688228 /* TACNSJSONSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = E3BD8CB624004C7C00688228 /* TACNSJSONSerialization.m */; };
+		E3BD8CBD2400741400688228 /* TACDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3BD8CBC2400741400688228 /* TACDetailViewController.m */; };
+		E3BD8CC02400838300688228 /* TACSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3BD8CBF2400838300688228 /* TACSearchViewController.m */; };
+		E3BD8CC32400956A00688228 /* TACArtistsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3BD8CC22400956A00688228 /* TACArtistsTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +38,12 @@
 		E3BD8CAF2400485800688228 /* TACArtistController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TACArtistController.m; sourceTree = "<group>"; };
 		E3BD8CB524004C7C00688228 /* TACNSJSONSerialization.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TACNSJSONSerialization.h; sourceTree = "<group>"; };
 		E3BD8CB624004C7C00688228 /* TACNSJSONSerialization.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TACNSJSONSerialization.m; sourceTree = "<group>"; };
+		E3BD8CBB2400741400688228 /* TACDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TACDetailViewController.h; sourceTree = "<group>"; };
+		E3BD8CBC2400741400688228 /* TACDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TACDetailViewController.m; sourceTree = "<group>"; };
+		E3BD8CBE2400838300688228 /* TACSearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TACSearchViewController.h; sourceTree = "<group>"; };
+		E3BD8CBF2400838300688228 /* TACSearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TACSearchViewController.m; sourceTree = "<group>"; };
+		E3BD8CC12400956A00688228 /* TACArtistsTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TACArtistsTableViewController.h; sourceTree = "<group>"; };
+		E3BD8CC22400956A00688228 /* TACArtistsTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TACArtistsTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +76,7 @@
 		E3BD8C88240039D700688228 /* FavoriteArtists */ = {
 			isa = PBXGroup;
 			children = (
+				E3BD8CBA240073EC00688228 /* ViewControllers */,
 				E3BD8CB124004A2000688228 /* JsonSerialization */,
 				E3BD8CAD2400482E00688228 /* Model Controllers */,
 				E3BD8CA32400408A00688228 /* Models */,
@@ -108,6 +118,19 @@
 				E3BD8CB624004C7C00688228 /* TACNSJSONSerialization.m */,
 			);
 			path = JsonSerialization;
+			sourceTree = "<group>";
+		};
+		E3BD8CBA240073EC00688228 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				E3BD8CBB2400741400688228 /* TACDetailViewController.h */,
+				E3BD8CBC2400741400688228 /* TACDetailViewController.m */,
+				E3BD8CBE2400838300688228 /* TACSearchViewController.h */,
+				E3BD8CBF2400838300688228 /* TACSearchViewController.m */,
+				E3BD8CC12400956A00688228 /* TACArtistsTableViewController.h */,
+				E3BD8CC22400956A00688228 /* TACArtistsTableViewController.m */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -183,8 +206,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				E3BD8CB02400485800688228 /* TACArtistController.m in Sources */,
+				E3BD8CC02400838300688228 /* TACSearchViewController.m in Sources */,
 				E3BD8C8B240039D700688228 /* AppDelegate.m in Sources */,
 				E3BD8C9C240039D800688228 /* main.m in Sources */,
+				E3BD8CBD2400741400688228 /* TACDetailViewController.m in Sources */,
+				E3BD8CC32400956A00688228 /* TACArtistsTableViewController.m in Sources */,
 				E3BD8CAC240042EF00688228 /* TACArtists.m in Sources */,
 				E3BD8CB724004C7C00688228 /* TACNSJSONSerialization.m in Sources */,
 				E3BD8C8E240039D700688228 /* SceneDelegate.m in Sources */,
