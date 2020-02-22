@@ -29,7 +29,7 @@
     return self;
 }
 
-static NSString * const reuseIdentifier = @"ArtistCell";
+
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -52,7 +52,7 @@ static NSString * const reuseIdentifier = @"ArtistCell";
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"reuseIdentifier" forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ArtistCell" forIndexPath:indexPath];
     TACArtists *artist = self.artistController.artists[indexPath.row];
     cell.textLabel.text = artist.name;
     cell.detailTextLabel.text = [NSString stringWithFormat:@"Formed in %@", [artist formedYearString]];
@@ -67,11 +67,11 @@ static NSString * const reuseIdentifier = @"ArtistCell";
  
  // In a storyboard-based application, you will often want to do a little preparation before navigation
  - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-     if ([[segue identifier] isEqual:@"ShowDetialView"]) {
+     if ([[segue identifier] isEqual:@"ShowDetailView"]) {
          TACDetailViewController *destinationVC = [segue destinationViewController];
          NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
          destinationVC.artist = self.artistController.artists[indexPath.row];
-     } else if ([[segue identifier] isEqual:@"ShowSearchView"]) {
+     } else if ([[segue identifier] isEqual:@"ShowSearchView"]){
          TACSearchViewController *destinationVC = [segue destinationViewController];
          destinationVC.artistController = self.artistController;
      }

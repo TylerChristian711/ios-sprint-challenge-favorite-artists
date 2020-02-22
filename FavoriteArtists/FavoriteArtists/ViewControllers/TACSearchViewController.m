@@ -55,7 +55,18 @@
 #pragma mark UIsearchBarDelegate
 
 -(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
-
+    
+    NSLog(@"Search bar tapped");
+    if (self.artistController){
+        NSLog(@"EXECUTING self.artistController searchForArtists");
+    }
+    
+    if (!self.artistController){
+        NSLog(@"No artist controller in self");
+    }
+    
+    
+    
     [self.artistController searchForArtistsByName:searchBar.text completion:^(TACArtists *artist, NSError *error) {
         dispatch_async(dispatch_get_main_queue(), ^{
             if (error) {
