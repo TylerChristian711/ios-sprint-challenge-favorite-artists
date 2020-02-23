@@ -41,6 +41,10 @@
        self.formedYearLabel.text = @"";
        self.biographyTextView.text = @"";
     }
+    
+
+    
+    
 }
 
 - (IBAction)saveButtonPressed:(id)sender {
@@ -65,8 +69,6 @@
         NSLog(@"No artist controller in self");
     }
     
-    
-    
     [self.artistController searchForArtistsByName:searchBar.text completion:^(TACArtists *artist, NSError *error) {
         dispatch_async(dispatch_get_main_queue(), ^{
             if (error) {
@@ -75,7 +77,17 @@
             }
             self.artist = artist;
             [self updateViews];
+
         });
+        
+        if (!self.artist) {
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"No artist found" message:@"we could not find a band by that name check you spelling maybe?" preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                NSLog(@"cancel is selected");
+            }];
+            [alertController addAction:cancel];
+            [self presentViewController: alertController animated: YES completion: nil];
+        }
 
     }];
 }

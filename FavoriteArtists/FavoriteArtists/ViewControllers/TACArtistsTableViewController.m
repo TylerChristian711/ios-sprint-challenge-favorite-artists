@@ -53,6 +53,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ArtistCell" forIndexPath:indexPath];
+    
     TACArtists *artist = self.artistController.artists[indexPath.row];
     cell.textLabel.text = artist.name;
     cell.detailTextLabel.text = [NSString stringWithFormat:@"Formed in %@", [artist formedYearString]];
@@ -67,7 +68,7 @@
  
  // In a storyboard-based application, you will often want to do a little preparation before navigation
  - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-     if ([[segue identifier] isEqual:@"ShowDetailView"]) {
+     if ([[segue identifier] isEqual:@"ShowDetialView"]) {
          TACDetailViewController *destinationVC = [segue destinationViewController];
          NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
          destinationVC.artist = self.artistController.artists[indexPath.row];

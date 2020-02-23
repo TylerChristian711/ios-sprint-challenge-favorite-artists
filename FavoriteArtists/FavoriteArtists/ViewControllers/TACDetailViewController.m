@@ -8,11 +8,13 @@
 
 #import "TACDetailViewController.h"
 #import "TACArtists.h"
+#import "TACArtistController.h"
 
 @interface TACDetailViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *yearFormedLabel;
 @property (weak, nonatomic) IBOutlet UITextView *biographyTextField;
 -(void)updateViews;
+
 @end
 
 @implementation TACDetailViewController
@@ -22,7 +24,7 @@
     [self updateViews];
 }
 
--(void)updateViews {
+- (void)updateViews {
     if (self.artist) {
         self.title = self.artist.name;
         self.yearFormedLabel.text = [NSString stringWithFormat:@"Formed in: %@", [self.artist formedYearString]];
