@@ -71,24 +71,19 @@
     
     [self.artistController searchForArtistsByName:searchBar.text completion:^(TACArtists *artist, NSError *error) {
         dispatch_async(dispatch_get_main_queue(), ^{
-            if (error) {
-                NSLog(@"Error: %@", error);
-                return;
-            }
+            // Get the artist that was returned
             self.artist = artist;
-            [self updateViews];
-
+            // Was an artist returned?
+             if(artist) {
+                 //Display the artist data
+                  [self updateViews];
+             }
+             else {
+                 // Can you finish this
+                 
+                    
+             }
         });
-        
-        if (!self.artist) {
-            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"No artist found" message:@"we could not find a band by that name check you spelling maybe?" preferredStyle:UIAlertControllerStyleAlert];
-            UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-                NSLog(@"cancel is selected");
-            }];
-            [alertController addAction:cancel];
-            [self presentViewController: alertController animated: YES completion: nil];
-        }
-
     }];
 }
 

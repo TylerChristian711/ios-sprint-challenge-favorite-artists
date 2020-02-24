@@ -16,10 +16,13 @@
     NSString *name = dictionary[@"strArtist"];
     NSString *strformedYear = dictionary[@"intFormedYear"];
     int formedYear = 0;
-    if ([strformedYear isKindOfClass:[NSString class]]) {
+    if (![strformedYear isKindOfClass:[NSNull class]]) {
         formedYear = [strformedYear intValue];
     }
     NSString *biography = dictionary[@"strBiographyEN"];
+    if (!(name || biography || formedYear)) {
+        return nil;
+    }
     return [self initWithName:name biography:biography formedYear:formedYear];
 }
 
